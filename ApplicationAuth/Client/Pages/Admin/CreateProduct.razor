@@ -1,0 +1,28 @@
+﻿@page "/createproduct"
+@using System.Net.Http.Headers;
+
+<h1>Upload photo of product</h1>
+
+<InputFile OnChange="@OnInputFileChange"contextmenu=" multiple"></InputFile>
+
+@code {
+    private const int _maxAllowedFiles = int.MaxValue;
+    private const long _maxFileSize = long.MaxValue;
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        using var content = new MultipartFormDataContent();
+
+        e.GetMultipleFiles(_maxAllowedFiles).ToList().ForEach(file =>
+        {
+            var fileContent = new StreamContent(file.OpenReadStream(_maxFileSize));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(
+                content: fileContent,
+                name: "\"files\"",
+                fileName: file.Name
+            );
+            
+        });
+    }
+}

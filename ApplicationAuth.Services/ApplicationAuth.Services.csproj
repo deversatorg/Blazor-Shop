@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AWSSDK.Core" Version="3.7.1" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.7.0.44" />
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.2.15" />
+    <PackageReference Include="Braintree" Version="5.8.0" />
+    <PackageReference Include="EPPlus" Version="5.7.2" />
+    <PackageReference Include="FcmSharp" Version="3.0.1" />
+    <PackageReference Include="itext7.pdfhtml" Version="3.0.5" />
+    <PackageReference Include="Mandrill" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="PushSharp" Version="4.0.10" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
+    <PackageReference Include="Stripe.net" Version="39.61.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.0" />
+    <PackageReference Include="Twilio" Version="5.64.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationAuth.Common\ApplicationAuth.Common.csproj" />
+    <ProjectReference Include="..\ApplicationAuth.DAL\ApplicationAuth.DAL.csproj" />
+    <ProjectReference Include="..\ApplicationAuth.Domain\ApplicationAuth.Domain.csproj" />
+    <ProjectReference Include="..\ApplicationAuth.Models\ApplicationAuth.Models.csproj" />
+  </ItemGroup>
+</Project>
